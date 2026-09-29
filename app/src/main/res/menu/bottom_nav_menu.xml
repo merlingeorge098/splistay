@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_expenses"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Expenses" />
+    <item
+        android:id="@+id/navigation_chores"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Chores" />
+    <item
+        android:id="@+id/navigation_ai"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="AI" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Profile" />
+</menu>

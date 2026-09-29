@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_chore_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Clean Bathroom"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_status_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@android:drawable/ic_menu_today"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_chore_title"
+            app:tint="@color/error_red" />
+
+        <TextView
+            android:id="@+id/text_due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Today, 5 PM"
+            android:textColor="@color/error_red"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_status_icon"
+            app:layout_constraintStart_toEndOf="@id/img_status_icon"
+            app:layout_constraintTop_toTopOf="@id/img_status_icon" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_assignee"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_status_icon"
+            app:shapeAppearanceOverlay="@style/CircleImage" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_proof"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:paddingHorizontal="12dp"
+            android:text="Proof"
+            android:textSize="10sp"
+            app:icon="@android:drawable/ic_menu_camera"
+            app:iconSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_assignee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_assignee" />
+
+        <LinearLayout
+            android:id="@+id/layout_verified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/secondary_card_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/img_assignee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_assignee">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@android:drawable/checkbox_on_background"
+                app:tint="@color/accent_emerald" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Verified"
+                android:textColor="@color/on_secondary_container"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

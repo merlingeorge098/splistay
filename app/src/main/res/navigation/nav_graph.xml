@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_onboarding">
+
+    <fragment
+        android:id="@+id/navigation_onboarding"
+        android:name="com.example.splistay.ui.fragments.OnboardingFragment"
+        android:label="Onboarding"
+        tools:layout="@layout/fragment_onboarding" />
+
+    <fragment
+        android:id="@+id/navigation_auth"
+        android:name="com.example.splistay.ui.fragments.AuthFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_auth" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.splistay.ui.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_expenses"
+        android:name="com.example.splistay.ui.fragments.ExpensesFragment"
+        android:label="Expenses"
+        tools:layout="@layout/fragment_expenses" />
+
+    <fragment
+        android:id="@+id/navigation_chores"
+        android:name="com.example.splistay.ui.fragments.ChoresFragment"
+        android:label="Chores"
+        tools:layout="@layout/fragment_chores" />
+
+    <fragment
+        android:id="@+id/navigation_ai"
+        android:name="com.example.splistay.ui.fragments.AiAssistantFragment"
+        android:label="AI Assistant"
+        tools:layout="@layout/fragment_ai" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.splistay.ui.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_add_expense"
+        android:name="com.example.splistay.ui.fragments.AddExpenseFragment"
+        android:label="Add Expense"
+        tools:layout="@layout/fragment_add_expense" />
+</navigation>

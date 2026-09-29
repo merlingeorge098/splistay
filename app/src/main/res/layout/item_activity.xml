@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/card_background"
+    android:padding="12dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_activity_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/error_container"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_menu_today"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircleImage"
+        app:tint="@color/on_error_container" />
+
+    <TextView
+        android:id="@+id/text_activity_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="Rahul added an expense"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_activity_time"
+        app:layout_constraintStart_toEndOf="@id/img_activity_icon"
+        app:layout_constraintTop_toTopOf="@id/img_activity_icon" />
+
+    <TextView
+        android:id="@+id/text_activity_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Grocery - ₹450"
+        android:textColor="@color/secondary_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/text_activity_title"
+        app:layout_constraintStart_toStartOf="@id/text_activity_title"
+        app:layout_constraintTop_toBottomOf="@id/text_activity_title" />
+
+    <TextView
+        android:id="@+id/text_activity_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2h ago"
+        android:textColor="@color/secondary_text"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_activity_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
