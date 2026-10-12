@@ -4,21 +4,29 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.splistay.data.model.*
 
 @Database(
-    entities = [StayRoom::class, Roommate::class, Expense::class, Chore::class, Settlement::class],
+    entities = [
+        RoomEntity::class,
+        UserEntity::class,
+        ExpenseEntity::class,
+        ExpenseSplitEntity::class,
+        ChoreEntity::class,
+        UtilityPredictionEntity::class,
+        AlertEntity::class
+    ],
     version = 1,
     exportSchema = false
 )
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun stayRoomDao(): StayRoomDao
-    abstract fun roommateDao(): RoommateDao
+    abstract fun roomDao(): RoomDao
+    abstract fun userDao(): UserDao
     abstract fun expenseDao(): ExpenseDao
+    abstract fun expenseSplitDao(): ExpenseSplitDao
     abstract fun choreDao(): ChoreDao
-    abstract fun settlementDao(): SettlementDao
+    abstract fun utilityPredictionDao(): UtilityPredictionDao
+    abstract fun alertDao(): AlertDao
 
     companion object {
         @Volatile
@@ -30,7 +38,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "splitstay_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration()
+                .build()
                 INSTANCE = instance
                 instance
             }

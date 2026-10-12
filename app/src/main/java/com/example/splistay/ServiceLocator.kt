@@ -41,11 +41,13 @@ object ServiceLocator {
             val db = getDatabase(context)
             val firestore = getFirestore()
             val instance = SplitStayRepository(
-                db.stayRoomDao(),
-                db.roommateDao(),
+                db.roomDao(),
+                db.userDao(),
                 db.expenseDao(),
+                db.expenseSplitDao(),
                 db.choreDao(),
-                db.settlementDao(),
+                db.utilityPredictionDao(),
+                db.alertDao(),
                 apiService,
                 firestore
             )

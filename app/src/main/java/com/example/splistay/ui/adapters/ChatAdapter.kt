@@ -1,9 +1,8 @@
 package com.example.splistay.ui.adapters
 
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -24,15 +23,17 @@ class ChatAdapter : ListAdapter<ChatMessage, ChatAdapter.ChatViewHolder>(ChatDif
     class ChatViewHolder(private val binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(message: ChatMessage) {
             binding.textChat.text = message.text
-            val params = binding.cardChat.layoutParams as LinearLayout.LayoutParams
-            if (message.isFromUser) {
-                params.gravity = Gravity.END
-                binding.cardChat.setCardBackgroundColor(binding.root.context.getColor(android.R.color.holo_blue_dark))
-            } else {
-                params.gravity = Gravity.START
-                binding.cardChat.setCardBackgroundColor(binding.root.context.getColor(android.R.color.darker_gray))
+            val params = binding.cardChat.layoutParams as? ConstraintLayout.LayoutParams
+            if (params != null) {
+                if (message.isFromUser) {
+                    params.horizontalBias = 1.0f
+                    binding.cardChat.setCardBackgroundColor(binding.root.context.getColor(android.R.color.holo_blue_dark))
+                } else {
+                    params.horizontalBias = 0.0f
+                    binding.cardChat.setCardBackgroundColor(binding.root.context.getColor(android.R.color.darker_gray))
+                }
+                binding.cardChat.layoutParams = params
             }
-            binding.cardChat.layoutParams = params
         }
     }
 

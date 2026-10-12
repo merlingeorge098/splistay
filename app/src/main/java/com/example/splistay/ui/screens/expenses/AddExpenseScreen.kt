@@ -12,7 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.example.splistay.data.model.Expense
+import com.example.splistay.data.model.ExpenseEntity
 import com.example.splistay.viewmodel.ExpensesViewModel
 import java.util.*
 
@@ -83,18 +83,15 @@ fun AddExpenseScreen(
                     val expenseAmount = amount.toDoubleOrNull() ?: 0.0
                     if (description.isNotEmpty() && expenseAmount > 0) {
                         viewModel.addExpense(
-                            Expense(
-                                id = UUID.randomUUID().toString(),
-                                roomId = "default_room",
-                                description = description,
+                            ExpenseEntity(
+                                expense_id = UUID.randomUUID().toString(),
+                                room_id = "default_room",
+                                paid_by_user_id = "user_1",
+                                title = description,
                                 amount = expenseAmount,
                                 category = category,
-                                paidByRoommateId = "user_1",
-                                splitBetween = emptyMap(),
-                                splitType = "equal",
-                                notes = null,
-                                receiptPhotoUri = null,
-                                date = System.currentTimeMillis()
+                                timestamp = System.currentTimeMillis(),
+                                is_synced = false
                             )
                         )
                         onBack()

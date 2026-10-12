@@ -47,7 +47,7 @@ class ExpensesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        setupRecyclerView()
+        setupRecyclerViews()
         observeViewModel()
         
         binding.fabAddExpense.setOnClickListener {
@@ -55,7 +55,7 @@ class ExpensesFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerViews() {
         expenseAdapter = ExpenseAdapter { expense ->
             viewModel.deleteExpense(expense)
         }
@@ -69,7 +69,8 @@ class ExpensesFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { uiState ->
-                    expenseAdapter.submitList(uiState.expenses)
+                    // Pass a new list copy so ListAdapter detects updates properly
+                    expenseAdapter.submitList(uiState.expenses.toList())
                     binding.textYouOwe.text = "₹${uiState.youOwe.toInt()}"
                     binding.textYouGet.text = "₹${uiState.youGet.toInt()}"
                 }

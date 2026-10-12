@@ -41,11 +41,10 @@ class ChoresViewModel(private val repository: SplitStayRepository) : ViewModel()
             // Distance check logic would go here
             repository.updateChore(chore.copy(
                 status = "completed",
-                proofPhotoUri = photoUri,
-                proofLatitude = lat,
-                proofLongitude = lng,
-                proofTimestamp = System.currentTimeMillis(),
-                gpsVerified = true // Mock verification success
+                proof_photo_path = photoUri,
+                proof_latitude = lat,
+                proof_longitude = lng,
+                completed_at = System.currentTimeMillis()
             ))
         }
     }

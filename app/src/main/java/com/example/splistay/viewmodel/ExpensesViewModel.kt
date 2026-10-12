@@ -29,6 +29,10 @@ class ExpensesViewModel(private val repository: SplitStayRepository) : ViewModel
             initialValue = ExpensesUiState()
         )
 
+    suspend fun addExpenseSuspend(expense: Expense) {
+        repository.addExpense(expense)
+    }
+
     fun addExpense(expense: Expense) {
         viewModelScope.launch {
             repository.addExpense(expense)
